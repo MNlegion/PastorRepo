@@ -29,7 +29,7 @@ To install and run the application locally, follow these steps:
 
 1. **Clone the Repository**: 
    ```
-   git clone https://github.com/your-repo-url.git
+   git clone https://github.com/MNlegion/PastorRepo
    ```
 
 2. **Install Dependencies**:
