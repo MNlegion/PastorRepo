@@ -1,6 +1,6 @@
 # MERN Stack Social Application README
 
-Welcome to our MERN (MongoDB, Express.js, React.js, Node.js) stack social application! This README provides an overview of our application, including installation instructions, features, and how to contribute.
+Welcome to my MERN (MongoDB, Express.js, React.js, Node.js) stack social application! This README provides an overview of my application, including installation instructions, features, and how to contribute.
 
 ## Table of Contents
 
@@ -13,7 +13,7 @@ Welcome to our MERN (MongoDB, Express.js, React.js, Node.js) stack social applic
 
 ## Introduction
 
-Our MERN stack social application is designed to provide users with a platform to connect, share thoughts, and organize events like golf trips. It offers secure login functionality, user profiles, social media-like posting, and a shared calendar for scheduling events.
+My MERN stack social application is designed to provide users with a platform to connect, share thoughts, and organize events like golf trips. It offers secure login functionality, user profiles, social media-like posting, and a shared calendar for scheduling events.
 
 ## Features
 
@@ -64,7 +64,7 @@ Once the application is running, users can:
 
 ## Contributing
 
-We welcome contributions from the community! To contribute to our project, follow these steps:
+We welcome contributions from the community! To contribute to my project, follow these steps:
 
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
@@ -78,4 +78,4 @@ This project is licensed under the [MIT License](LICENSE), which means you are f
 
 ---
 
-Thank you for using our MERN stack social application! If you have any questions or encounter any issues, please don't hesitate to reach out to us. Happy coding!
+Thank you for using my MERN stack social application! If you have any questions or encounter any issues, please don't hesitate to reach out to us. Happy coding!
