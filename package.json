@@ -1,0 +1,30 @@
+{
+  "name": "pastorrepo",
+  "version": "1.0.0",
+  "description": "Welcome to my MERN (MongoDB, Express.js, React.js, Node.js) stack social application! This README provides an overview of my application, including installation instructions, features, and how to contribute.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MNlegion/PastorRepo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MNlegion/PastorRepo/issues"
+  },
+  "homepage": "https://github.com/MNlegion/PastorRepo#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
