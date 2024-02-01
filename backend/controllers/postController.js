@@ -1,10 +1,13 @@
 const asyncHandler = require("express-async-handler");
+const Post = require("../models/postModel");
 
 // @desc    Get all posts
 // @route   GET /api/posts
 // @access  Private
 const getPosts = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: "Get Post" });
+  const posts = await Post.find({});
+
+  res.status(200).json(posts);
 });
 
 // @desc    Create Post
@@ -16,21 +19,51 @@ const createPost = asyncHandler(async (req, res) => {
     throw new Error("Please enter a title and text field");
   }
 
-  res.status(200).json({ message: "Create Post" });
+  const post = await Post.create({
+    title: req.body.title,
+    text: req.body.text,
+  });
+
+  res.status(200).json(post);
 });
 
 // @desc    Update Post
 // @route   PUT /api/posts
 // @access  Private
 const updatePost = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: `Update Post ${req.params.id}` });
+  const post = await Post.findById(req.params.id);
+
+  if (!post) {
+    res.status(404);
+    throw new Error("Post not found");
+  }
+
+  const updatedPost = await Post.findByIdAndUpdate(
+    req.params.id,
+    {
+      title: req.body.title,
+      text: req.body.text,
+    },
+    { new: true }
+  );
+
+  res.status(200).json(updatedPost);
 });
 
 // @desc    Delete Post
 // @route   DELETE /api/posts
 // @access  Private
 const deletePost = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: `Update Post ${req.params.id}` });
+  const post = await Post.findById(req.params.id);
+
+  if (!post) {
+    res.status(404);
+    throw new Error("Post not found");
+  }
+
+  await post.deleteOne();
+
+  res.status(200).json({ id: req.params.id });
 });
 
 // exports
