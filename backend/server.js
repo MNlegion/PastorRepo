@@ -17,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Import routes
 app.use('/api/posts', require('./routes/postRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
 
 // Error handler
 app.use(errorHandler);
