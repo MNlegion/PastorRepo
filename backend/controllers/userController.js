@@ -71,7 +71,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
 // @desc: Get User Profile
 // @route: GET /api/users/me
-// @access: Public
+// @access: Private
 const getMe = asyncHandler(async (req, res) => {
   res.json({ message: "Profile Loaded Successfully" });
 });
