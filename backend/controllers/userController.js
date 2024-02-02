@@ -73,7 +73,13 @@ const loginUser = asyncHandler(async (req, res) => {
 // @route: GET /api/users/me
 // @access: Private
 const getMe = asyncHandler(async (req, res) => {
-  res.json({ message: "Profile Loaded Successfully" });
+  const { _id, username, email } = await User.findById(req.user._id);
+
+  res.status(200).json({
+    id: _id,
+    username,
+    email,
+  });
 });
 
 // Generate Token
