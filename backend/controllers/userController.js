@@ -32,6 +32,7 @@ const registerUser = asyncHandler(async (req, res) => {
     username,
     email,
     password: hashedPassword,
+    token: generateToken(username._id),
   });
 
   if (user) {
@@ -60,7 +61,8 @@ const loginUser = asyncHandler(async (req, res) => {
       _id: user.id,
       username: user.username,
       email: user.email,
-    })
+      token: generateToken(user._id),
+    });
   } else {
     res.status(401);
     throw new Error("Invalid credentials");
@@ -73,6 +75,13 @@ const loginUser = asyncHandler(async (req, res) => {
 const getMe = asyncHandler(async (req, res) => {
   res.json({ message: "Profile Loaded Successfully" });
 });
+
+// Generate Token
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: "30d",
+  });
+};
 
 module.exports = {
   registerUser,
