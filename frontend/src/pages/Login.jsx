@@ -3,13 +3,11 @@ import { FaSignInAlt } from "react-icons/fa";
 
 function Login() {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
-    passwordConfirm: "",
   });
 
-  const { name, email, password, passwordConfirm } = formData;
+  const { email, password } = formData;
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -36,17 +34,6 @@ function Login() {
         <form onSubmit={onSubmit}>
           <div className="form-group">
             <input
-              type="text"
-              className="form-control"
-              id="name"
-              name="name"
-              value={name}
-              placeholder="Enter your username"
-              onChange={onChange}
-            />
-          </div>
-          <div className="form-group">
-            <input
               type="email"
               className="form-control"
               id="email"
@@ -68,19 +55,8 @@ function Login() {
             />
           </div>
           <div className="form-group">
-            <input
-              type="password"
-              className="form-control"
-              id="passwordConfirm"
-              name="passwordConfirm"
-              value={passwordConfirm}
-              placeholder="Confirm your password"
-              onChange={onChange}
-            />
-          </div>
-          <div className="form-group">
             <button type="submit" className="btn btn-block">
-              Register
+              Login
             </button>
           </div>
         </form>
