@@ -108,6 +108,11 @@ h3 {
   background: none;
 }
 
+.form {
+  margin: 55px;
+  border: #000;
+}
+
 .form,
 .content {
   width: 70%;
@@ -167,6 +172,7 @@ h3 {
 
 .btn:hover {
   transform: scale(0.98);
+  background: blue;
 }
 
 .loadingSpinnerContainer {

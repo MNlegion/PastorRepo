@@ -64,21 +64,23 @@ function PostForm() {
     <section className="form">
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="title">Post Title</label>
+          <label htmlFor="title"></label>
           <input
             type="text"
             name="title"
             id="title"
+            placeholder="Super Neat Title!"
             value={title}
             onChange={handleTitleChange}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="text">Post Text</label>
+          <label htmlFor="text"></label>
           <textarea
             type="text"
             name="text"
             id="text"
+            placeholder="What's on your mind?"
             value={text}
             onChange={handleTextChange}
           ></textarea>
