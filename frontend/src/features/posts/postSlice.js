@@ -34,6 +34,21 @@ export const postSlice = createSlice({
   reducers: {
     reset: (state) => initialState,
   },
+  extraReducers: (builder) => {
+    builder.addCase(createPost.pending, (state) => {
+      state.isLoading = true;
+    })
+    .addCase(createPost.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = true;
+      state.posts.push(action.payload);
+    })
+    .addCase(createPost.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isError = true;
+      state.message = action.payload;
+    });
+  },
 });
 
 export const { reset } = postSlice.actions;
