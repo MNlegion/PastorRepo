@@ -15,6 +15,14 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: [true, "Text is required"],
     },
+    upvotes: {
+      type: Number,
+      default: 1,
+    },
+    downvotes: {
+      type: Number,
+      default: 0,
+    },
   },
   {
     timestamps: true,

@@ -66,6 +66,28 @@ export const deletePost = createAsyncThunk(
   }
 );
 
+// Handle Upvote
+export const handleUpvote = createAsyncThunk(
+  "posts/upvote",
+  async (id, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await postService.handleUpvote(id, token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+// Handle Downvote
+export const handleDownvote = createAsyncThunk();
+
 export const postSlice = createSlice({
   name: "posts",
   initialState,
@@ -112,7 +134,16 @@ export const postSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
-      });
+      })
+      .addCase(handleUpvote.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        const postId = action.payload.id;
+        const postIndex = state.posts.findIndex((post) => post._id === postId);
+        if (postIndex !== -1) {
+          state.posts[postIndex].upvote += 1;
+        }
+      })
   },
 });
 

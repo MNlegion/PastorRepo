@@ -41,11 +41,38 @@ const deletePost = async (postId, token) => {
   return response.data;
 };
 
+// Handle Upvote
+const handleUpvote = async (postId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.put(API_URL + "upvote/" + postId, {}, config);
+
+  return response.data;
+};
+
+// Handle Downvote
+const handleDownvote = async (postId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.put(API_URL + "downvote/" + postId, {}, config);
+
+  return response.data;
+};
+
 const postService = {
   getPosts,
   createPost,
-  //   updatePost,
   deletePost,
+  handleUpvote,
+  handleDownvote,
 };
 
 export default postService;
